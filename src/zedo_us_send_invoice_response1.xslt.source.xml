@@ -1,0 +1,66 @@
+<!--
+name      /1SAI/SASBE0B2140287AC255C53B
+object    TABL
+obj_name  ZEDO_US_SEND_INVOICE_RESPONSE1
+-->
+<?sap.transform simple?>
+<tt:transform version="1.0" xmlns:tt="http://www.sap.com/transformation-templates" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:sapgdt="http://sap.com/xi/SAPGlobal/GDT" xmlns:ddic="http://www.sap.com/abapxml/types/dictionary" xmlns:prx="urn:sap.com:proxy:XJD:/1SAI/SASBE0B2140287AC255C53B:790">
+ <tt:root name="ROOT" type="ddic:ZEDO_US_SEND_INVOICE_RESPONSE1"/>
+ <tt:variable name="_C_NIL" val="C(' ')" type="ddic:XSDBOOLEAN"/>
+ <tt:variable name="_S" type="STRING"/>
+ <tt:parameter name="_DEFAULT" val="C('')"/>
+ <tt:parameter name="_CNTL_VAL" val="C('')"/>
+
+ <tt:template name="ZEDO_US_SEND_INVOICE_RESPONSE_ATTR">
+  <tt:context>
+   <tt:root name="ROOT" type="ddic:ZEDO_US_SEND_INVOICE_RESPONSE"/>
+   <tt:parameter name="_DEFAULT" val="C('')"/>
+   <tt:parameter name="_CNTL_VAL" val="C('')"/>
+   <tt:variable name="_C_NIL" val="C(' ')" type="ddic:XSDBOOLEAN"/>
+   <tt:variable name="_S" type="STRING"/>
+  </tt:context>
+  <tt:ref name="ROOT"/>
+ </tt:template>
+
+ <tt:template name="ZEDO_US_SEND_INVOICE_RESPONSE1_ATTR">
+  <tt:context>
+   <tt:root name="ROOT" type="ddic:ZEDO_US_SEND_INVOICE_RESPONSE1"/>
+   <tt:parameter name="_DEFAULT" val="C('')"/>
+   <tt:parameter name="_CNTL_VAL" val="C('')"/>
+   <tt:variable name="_C_NIL" val="C(' ')" type="ddic:XSDBOOLEAN"/>
+   <tt:variable name="_S" type="STRING"/>
+  </tt:context>
+  <tt:ref name="ROOT"/>
+ </tt:template>
+
+ <tt:template extensible="deep">
+ <Response>
+  <tt:apply name="ZEDO_US_SEND_INVOICE_RESPONSE1_ATTR">
+   <tt:with-root name="ROOT" ref="ROOT"/>
+  </tt:apply>
+  <tt:apply name="ZEDO_US_SEND_INVOICE_RESPONSE_ATTR">
+   <tt:with-root name="ROOT" ref="ROOT.PARAMETERS"/>
+  </tt:apply>
+  <tt:group>
+   <tt:cond>
+    <tt:ref name="ROOT.PARAMETERS">
+     <TaxAuthorityId tt:ref="TAX_AUTHORITY_ID">
+      <tt:deserialize>
+       <tt:assign to-var="_C_NIL" val="' '"/>
+       <tt:d-cond>
+        <tt:attribute name="xsi:nil">
+         <tt:read var="_C_NIL" map="xml('true', '1') &gt; val(C('2'))"/>
+        </tt:attribute>
+       </tt:d-cond>
+      </tt:deserialize>
+      <tt:cond-var check="_C_NIL!='2'">
+       <tt:value/>
+      </tt:cond-var>
+     </TaxAuthorityId>
+    </tt:ref>
+   </tt:cond>
+  </tt:group>
+  </Response>
+ </tt:template>
+
+</tt:transform>

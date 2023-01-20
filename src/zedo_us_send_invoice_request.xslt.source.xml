@@ -1,0 +1,151 @@
+<!--
+name      /1SAI/SASC5E79D7DF17DF164302B
+object    TABL
+obj_name  ZEDO_US_SEND_INVOICE_REQUEST
+-->
+<?sap.transform simple?>
+<tt:transform version="1.0" xmlns:tt="http://www.sap.com/transformation-templates" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:sapgdt="http://sap.com/xi/SAPGlobal/GDT" xmlns:ddic="http://www.sap.com/abapxml/types/dictionary" xmlns:prx="urn:sap.com:proxy:XJD:/1SAI/SASC5E79D7DF17DF164302B:790">
+ <tt:root name="ROOT" type="ddic:ZEDO_US_SEND_INVOICE_REQUEST"/>
+ <tt:variable name="_C_NIL" val="C(' ')" type="ddic:XSDBOOLEAN"/>
+ <tt:variable name="_S" type="STRING"/>
+ <tt:parameter name="_DEFAULT" val="C('')"/>
+ <tt:parameter name="_CNTL_VAL" val="C('')"/>
+
+ <tt:template name="ZEDO_US_SEND_INVOICE_REQUEST_T_ATTR">
+  <tt:context>
+   <tt:root name="ROOT" type="ddic:ZEDO_US_SEND_INVOICE_REQUEST_T"/>
+   <tt:parameter name="_DEFAULT" val="C('')"/>
+   <tt:parameter name="_CNTL_VAL" val="C('')"/>
+   <tt:variable name="_C_NIL" val="C(' ')" type="ddic:XSDBOOLEAN"/>
+   <tt:variable name="_S" type="STRING"/>
+  </tt:context>
+  <tt:ref name="ROOT"/>
+ </tt:template>
+
+ <tt:template name="ZEDO_US_SEND_INVOICE_REQUEST_ATTR">
+  <tt:context>
+   <tt:root name="ROOT" type="ddic:ZEDO_US_SEND_INVOICE_REQUEST"/>
+   <tt:parameter name="_DEFAULT" val="C('')"/>
+   <tt:parameter name="_CNTL_VAL" val="C('')"/>
+   <tt:variable name="_C_NIL" val="C(' ')" type="ddic:XSDBOOLEAN"/>
+   <tt:variable name="_S" type="STRING"/>
+  </tt:context>
+  <tt:ref name="ROOT"/>
+ </tt:template>
+
+ <tt:template extensible="deep">
+ <Request>
+  <tt:apply name="ZEDO_US_SEND_INVOICE_REQUEST_ATTR">
+   <tt:with-root name="ROOT" ref="ROOT"/>
+  </tt:apply>
+  <tt:apply name="ZEDO_US_SEND_INVOICE_REQUEST_T_ATTR">
+   <tt:with-root name="ROOT" ref="ROOT.PARAMETERS"/>
+  </tt:apply>
+  <tt:group>
+   <tt:cond>
+    <tt:ref name="ROOT.PARAMETERS">
+     <InvoiceId tt:ref="INVOICE_ID">
+      <tt:deserialize>
+       <tt:assign to-var="_C_NIL" val="' '"/>
+       <tt:d-cond>
+        <tt:attribute name="xsi:nil">
+         <tt:read var="_C_NIL" map="xml('true', '1') &gt; val(C('2'))"/>
+        </tt:attribute>
+       </tt:d-cond>
+      </tt:deserialize>
+      <tt:cond-var check="_C_NIL!='2'">
+       <tt:value/>
+      </tt:cond-var>
+     </InvoiceId>
+    </tt:ref>
+   </tt:cond>
+   <tt:cond>
+    <tt:ref name="ROOT.PARAMETERS">
+     <UUID tt:ref="UUID">
+      <tt:deserialize>
+       <tt:assign to-var="_C_NIL" val="' '"/>
+       <tt:d-cond>
+        <tt:attribute name="xsi:nil">
+         <tt:read var="_C_NIL" map="xml('true', '1') &gt; val(C('2'))"/>
+        </tt:attribute>
+       </tt:d-cond>
+      </tt:deserialize>
+      <tt:cond-var check="_C_NIL!='2'">
+       <tt:value/>
+      </tt:cond-var>
+     </UUID>
+    </tt:ref>
+   </tt:cond>
+   <tt:cond>
+    <tt:ref name="ROOT.PARAMETERS">
+     <InvoiceIssueDate tt:ref="INVOICE_ISSUE_DATE">
+      <tt:deserialize>
+       <tt:assign to-var="_C_NIL" val="' '"/>
+       <tt:d-cond>
+        <tt:attribute name="xsi:nil">
+         <tt:read var="_C_NIL" map="xml('true', '1') &gt; val(C('2'))"/>
+        </tt:attribute>
+       </tt:d-cond>
+      </tt:deserialize>
+      <tt:cond-var check="_C_NIL!='2'">
+       <tt:value/>
+      </tt:cond-var>
+     </InvoiceIssueDate>
+    </tt:ref>
+   </tt:cond>
+   <tt:cond>
+    <tt:ref name="ROOT.PARAMETERS">
+     <InvoiceAmount tt:ref="INVOICE_AMOUNT">
+      <tt:deserialize>
+       <tt:assign to-var="_C_NIL" val="' '"/>
+       <tt:d-cond>
+        <tt:attribute name="xsi:nil">
+         <tt:read var="_C_NIL" map="xml('true', '1') &gt; val(C('2'))"/>
+        </tt:attribute>
+       </tt:d-cond>
+      </tt:deserialize>
+      <tt:cond-var check="_C_NIL!='2'">
+       <tt:value/>
+      </tt:cond-var>
+     </InvoiceAmount>
+    </tt:ref>
+   </tt:cond>
+   <tt:cond>
+    <tt:ref name="ROOT.PARAMETERS">
+     <SellerId tt:ref="SELLER_ID">
+      <tt:deserialize>
+       <tt:assign to-var="_C_NIL" val="' '"/>
+       <tt:d-cond>
+        <tt:attribute name="xsi:nil">
+         <tt:read var="_C_NIL" map="xml('true', '1') &gt; val(C('2'))"/>
+        </tt:attribute>
+       </tt:d-cond>
+      </tt:deserialize>
+      <tt:cond-var check="_C_NIL!='2'">
+       <tt:value/>
+      </tt:cond-var>
+     </SellerId>
+    </tt:ref>
+   </tt:cond>
+   <tt:cond>
+    <tt:ref name="ROOT.PARAMETERS">
+     <BuyerId tt:ref="BUYER_ID">
+      <tt:deserialize>
+       <tt:assign to-var="_C_NIL" val="' '"/>
+       <tt:d-cond>
+        <tt:attribute name="xsi:nil">
+         <tt:read var="_C_NIL" map="xml('true', '1') &gt; val(C('2'))"/>
+        </tt:attribute>
+       </tt:d-cond>
+      </tt:deserialize>
+      <tt:cond-var check="_C_NIL!='2'">
+       <tt:value/>
+      </tt:cond-var>
+     </BuyerId>
+    </tt:ref>
+   </tt:cond>
+  </tt:group>
+  </Request>
+ </tt:template>
+
+</tt:transform>
